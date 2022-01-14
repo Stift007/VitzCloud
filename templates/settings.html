@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+</head>
+<body>
+    <form action="/settings" method="post">
+        <input name="NEW_USRNM" placeholder="Benutzernamen ändern">
+        <label for="NEW_PFP">Ändere meinen Avatar</label>
+        <input type="file" name="NEW_PFP">
+        <textarea name="NEW_BIO" placeholder="Erzähl der Welt was über dich!"></textarea>
+        <input type="submit">
+    </form>
+    <a href="/account/delete"><button style="color: #ff0000">Diesen Account löschen</button></a>
+
+    <h2>Kurse, an denen du Teilnimmst</h2>
+    {%for course in crs%}
+    <p>{{course}}</p>
+
+    {%endfor%}
+</body>
+</html>
