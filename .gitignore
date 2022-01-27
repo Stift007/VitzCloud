@@ -1,0 +1,6 @@
+/.env
+/.env.debug
+/venv
+/users.db
+/memory
+/nodemon.json

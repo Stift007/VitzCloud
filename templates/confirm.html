@@ -5,8 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/cdn/css/main.css">
+    <script>
+        document.onkeydown = function(e) {
+    if(event.keyCode == 123) {
+       return false;
+    }
+    if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+       return false;
+    }
+    if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
+       return false;
+    }
+    if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+       return false;
+    }
+    if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+       return false;
+    }
+  }
+  window.addEventListener('contextmenu', function (e) {
+    document.body.innerHTML 
+    alert('Oh what you doing pal?');
+    e.preventDefault();
+  }, false);
+  
+    </script>
 </head>
-<body>
+<body bgcolor="#251F4C">
     <h1 style="color: #ff0000">
         Warning: Diese Aktion ist absolut und unwiderruflich. Wirklich Fortfahren??
     </h1>

@@ -40,3 +40,4 @@ def render(redirect_after=3):
     <h1>You are being redirected...</h1>
     <h3>DDoS Protection by PyCloudFlare</h3>
     '''
+

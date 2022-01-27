@@ -3,14 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="/cdn/css/main.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/cdn/js/devtool-block.js" type="text/javascript"></script>
     <title>Settings</title>
+    <script>
+        document.onkeydown = function(e) {
+    if(event.keyCode == 123) {
+       return false;
+    }
+    if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+       return false;
+    }
+    if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
+       return false;
+    }
+    if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+       return false;
+    }
+    if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+       return false;
+    }
+  }
+  window.addEventListener('contextmenu', function (e) {
+    document.body.innerHTML 
+    alert('Oh what you doing pal?');
+    e.preventDefault();
+  }, false);
+  
+    </script>
 </head>
-<body>
-    <form action="/settings" method="post">
+<body bgcolor="#251F4C">
+    <form action="/settings" method="post" enctype=multipart/form-data>
         <input name="NEW_USRNM" placeholder="Benutzernamen ändern">
+        <br>
+        <br>
         <label for="NEW_PFP">Ändere meinen Avatar</label>
-        <input type="file" name="NEW_PFP">
+        <br>
+        <input type="file" name="NEW_PFP">  
         <textarea name="NEW_BIO" placeholder="Erzähl der Welt was über dich!"></textarea>
         <input type="submit">
     </form>
@@ -21,5 +51,7 @@
     <p>{{course}}</p>
 
     {%endfor%}
+    <a href="/oauth/connect/discord"><button style="color: #00ff00"><img src="https://pnggrid.com/wp-content/uploads/2021/05/Discord-Logo-Circle-1024x1024.png" width="16" height="auto">Mit Discord verbinden</button></a>
+    <a href="/callback/github"><button style="color: #00ff00"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" width="16" height="auto"> GitHub verbinden</button></a>
 </body>
 </html>
