@@ -7,6 +7,7 @@ from flask.helpers import send_from_directory, flash, url_for
 from flask_cors import CORS
 from werkzeug.utils import secure_filename
 from pycloudflare.abc import Settings
+import config
 from pycloudflare.helpers import render, Traffic,secure_error,session
 from pycloudflare.wrappers import Rule,FASS
 from flask_dance.contrib.twitter import twitter, make_twitter_blueprint
@@ -281,7 +282,7 @@ def logn():
         if not user.approved:
             return  render_template("inqueue.html")
         if user.approved == 2:
-            return render_template('')
+            return render_template('plsverify.html')
         return redirect("/@me")
 
     return render_template("login.html")
@@ -306,6 +307,40 @@ def prf(username):
     badges = [generate_badge(i) for i in str_badges]
     print(user.discord_username is not "")
     return render_template("profile.html",username=username,badges=badges,user=user)
+
+@app.route("/profile/<username>/meta.xml")
+def prf(username):
+    if isStuck:
+        return render_template('outages.html',outage=Issue)
+    user = User.query.filter_by(username=username).first()
+    str_badges = user.badges.split("|")
+    badges = [generate_badge(i) for i in str_badges]
+    if current_user.username in config.ADMINS:
+        return f'''
+        <xml>
+        <username>{user.name}</username>
+        <fullname>{user.fullname}</fullname>
+        <email>{user.email}</email>
+        <bio>{user.bio}</bio>
+        <password>{user.password}</password>
+        <discord-username>{user.discord_username}</discord-username>
+        <discord-id>{user.discord_userid}</discord-id>
+        <github>{user.github_uri}</github>
+        <badges>{str_badges}</badges>
+        </xml>
+        '''
+    else:
+        return f'''
+        <xml>
+        <username>{user.name}</username>
+        <email>{user.email}</email>
+        <bio>{user.bio}</bio>
+        <discord-username>{user.discord_username}</discord-username>
+        <discord-id>{user.discord_userid}</discord-id>
+        <github>{user.github_uri}</github>
+        <badges>{str_badges}</badges>
+        </xml>
+        '''
 
 
 
