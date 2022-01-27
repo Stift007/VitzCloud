@@ -5,12 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Warteschlange</title>
+    <title>VitzCloud</title>
 </head>
 <body bgcolor="#251F4C">
     <h1>Hier sind alle unregistrierten Benutzer</h1>
     {%for user in users%}
     <p>{{user.name}} || {{user.fullname}}</p> <a href="/admin/approve?account={{user.username}}"><button>Annehmen</button></a> <a href="/admin/delete?account={{user.username}}"><button>Ablehnen</button></a>
     {%endfor%}
+    <h1>Account temporär sperren</h1>
 </body>
 </html>

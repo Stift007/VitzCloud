@@ -11,5 +11,6 @@ if DEBUG:
     print("EXPORT_MODE: DEBUG")
 else:
     print("EXPORT_MODE: PRODUCTION")
+    load_dotenv()
     from settings_files.product import *
     
