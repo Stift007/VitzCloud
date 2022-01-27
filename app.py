@@ -280,6 +280,8 @@ def logn():
         login_user(user)
         if not user.approved:
             return  render_template("inqueue.html")
+        if user.approved == 2:
+            return render_template('')
         return redirect("/@me")
 
     return render_template("login.html")
