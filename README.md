@@ -24,5 +24,5 @@ This Project would not be possible without some crazy-cool Developers:
 * [**Flask**](https://pypi.org/pypi/flask) by the Palletsproject    
 * [**Werkzeug**](https://pypi.org/pypi/werkzeug) by the Palletsproject    
 * [**Flask_CORS**](https://pypi.org/pypi/flask_cors) by Cory Dolphin  
-* [**Flask**](https://pypi.org/pypi/flask_sqlalchemy) by the Palletsproject    
+* [**Flask-SQLAlcheny**](https://pypi.org/pypi/flask_sqlalchemy) by the Palletsproject    
 * [**Flask-Login**](https://pypi.org/pypi/flask-login) by Doraemon    
